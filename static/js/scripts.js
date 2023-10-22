@@ -1,3 +1,22 @@
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Get all input and textarea elements
+    const inputs = document.querySelectorAll('input, textarea');
+    
+    inputs.forEach(input => {
+        // Add input event listener
+        input.addEventListener('input', function() {
+            if (input.validity.valid) {
+                input.style.borderColor = "lightblue";
+            } else {
+                input.style.borderColor = "red";
+            }
+        });
+    });
+});
+
+
+
 async function handleFormSubmit(event) {
     event.preventDefault();
     let formData = new FormData(event.target);

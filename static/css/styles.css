@@ -30,7 +30,7 @@ input[type="radio"] {
     margin-right: 5px;
 }
 
-input[type="submit"] {
+input[type="submit"], input[type="button"]{
     background-color: #4CAF50;
     color: #fff;
     padding: 10px 20px;
@@ -40,7 +40,7 @@ input[type="submit"] {
     margin-right: 10px;
 }
 
-input[type="submit"]:hover {
+input[type="submit"]:hover,input[type="button"]:hover {
     opacity: 0.9;
 }
 
