@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_page.css') }}">
+    <title>Admin Page</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h2>Admin Page</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Document ID</th>
+                <th>Document Number</th>
+                <th>Full Name</th>
+                <th>Father's Name</th>
+                <th>Gender</th>
+                <th>DOB Year</th>
+                <th>Address</th>
+                <th>Download</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in data %}
+            <tr>
+                <td>{{ entry['document_id'] }}</td>
+                <td>{{ entry['document_number'] }}</td>
+                <td>{{ entry['full_name'] }}</td>
+                <td>{{ entry['fathers_name'] }}</td>
+                <td>{{ entry['gender'] }}</td>
+                <td>{{ entry['dob_year'] }}</td>
+                <td>{{ entry['address'] }}</td>
+                <td><a href="/file/{{ entry['document_id'] }}" target="_blank">Download</a></td>
+                
+                <td>
+                    <form action="/delete/{{ entry['_id'] }}" method="post">
+                        <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this entry?');">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,4 +1,8 @@
 
+function refreshPage() {
+    location.reload();
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     // Get all input and textarea elements
     const inputs = document.querySelectorAll('input, textarea');
@@ -51,6 +55,8 @@ function lockFormData() {
     saveButton.disabled = true; 
     saveButton.style.backgroundColor = "#e0e0e0"; // Light gray background
     saveButton.style.color = "#333";
+
+    nxtButton = document.getElementById("nxtBtn");
 }
 
 
